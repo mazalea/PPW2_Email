@@ -69,4 +69,49 @@ class GreetController extends Controller
      return 'Halo ' . $userData['firstname'] . ' ' .
     $userData['lastname'];
     } 
+
+
+/**
+ * @OA\Get(
+ *     path="/api/gallery",
+ *     tags={"gallery"},
+ *     summary="Returns a list of gallery items",
+ *     description="Get a list of gallery items with images",
+ *     operationId="gallery",
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(
+ *                 type="object",
+ *                 @OA\Property(property="id", type="integer"),
+ *                 @OA\Property(property="title", type="string"),
+ *                 @OA\Property(property="image_url", type="string"),
+ *             ),
+ *         ),
+ *     ),
+ * )
+ */
+public function getGallery()
+{
+    // Replace this with your actual gallery data retrieval logic
+    $galleryItems = [
+        [
+            'id' => 1,
+            'title' => 'Sample Image 1',
+            'image_url' => 'https://rickandmortyapi.com/api/character/avatar/258.jpeg',
+        ],
+        [
+            'id' => 2,
+            'title' => 'Sample Image 2',
+            'image_url' => 'https://rickandmortyapi.com/api/character/avatar/139.jpeg',
+        ],
+        // Add more gallery items as needed
+    ];
+
+    return response()->json($galleryItems);
+}
+
+
 }

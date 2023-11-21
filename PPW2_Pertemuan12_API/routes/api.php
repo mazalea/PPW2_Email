@@ -11,3 +11,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/info', [InfoController::class, 'index'])->name('info');
 Route::get('/greet', [GreetController::class,'greet'])->name('greet');
+
